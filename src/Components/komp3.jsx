@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Theme } from "../App";
 
 const Komp3 = () => {
   const [theme, setTheme] = useContext(Theme);
   return (
     <div className={`${theme}`}>
-      <label>
+      <label className="switch">
         <input
           type="checkbox"
           checked={theme === "dark"}
@@ -13,7 +13,14 @@ const Komp3 = () => {
             setTheme(e.target.checked ? "dark" : "light");
           }}
         />
-        Use dark mode
+        <span className="slider round"></span>
+        <div className={`${theme}`}>
+          {theme === "dark" ? (
+            <p>Switch to light mode</p>
+          ) : (
+            <p>Switch to dark mode</p>
+          )}
+        </div>
       </label>
       <p>You are using {theme} mode!</p>
     </div>

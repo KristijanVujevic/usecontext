@@ -18,7 +18,7 @@ function App() {
   const [text, setText] = useState("Marko");
   const varijabla = useContext(NumberAndText);
   return (
-    <div className="App">
+    <div className={`${theme} App`}>
       <Theme.Provider value={[theme, setTheme]}>
         <ProslijediText.Provider value={ime}>
           <DodajText.Provider value={[text, setText]}>
