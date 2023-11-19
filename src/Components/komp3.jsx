@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Theme } from "../App";
 
 const Komp3 = () => {
   const [theme, setTheme] = useContext(Theme);
+  const [counter, setCounter] = useState(0);
   return (
     <div className={`${theme}`}>
       <label className="switch">
@@ -11,6 +12,7 @@ const Komp3 = () => {
           checked={theme === "dark"}
           onChange={(e) => {
             setTheme(e.target.checked ? "dark" : "light");
+            setCounter(counter + 1);
           }}
         />
         <span className="slider round"></span>
@@ -23,6 +25,7 @@ const Komp3 = () => {
         </div>
       </label>
       <p>You are using {theme} mode!</p>
+      <p>You've switched mode {counter} times.</p>
     </div>
   );
 };
